@@ -135,4 +135,4 @@ document.querySelectorAll('.collection-item').forEach(
     }
   }
 );
-}
+};
