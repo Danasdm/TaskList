@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "/Users/dbrooks/Desktop/JS_Sandbox"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "TaskList"
+	}
+}
