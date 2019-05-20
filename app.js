@@ -74,11 +74,12 @@ function addTask(e){
  //Append the link to li
  li.appendChild(link);
 
+ //Append li to ul
+ taskList.appendChild(li);
+
  //Store in LS
  storeTaskInLocalStorage(taskInput.value);
 
- //Append li to ul
- taskList.appendChild(li);
 
  //Clear input
  taskInput.value = '';
@@ -107,10 +108,32 @@ function removeTask(e){
     ('delete-item')){
       if(confirm('Are You Sure?')) {
       e.target.parentElement.parentElement.remove();
+
+      //Remove from LS
+      removeTaskFromLocalStorage
+      (e.target.parentElement.parentElement);
     }
   }
 }
 
+
+//Remove from LS
+function removeTaskFromLocalStorage(taskItem){
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks = [];
+  } else {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  tasks.forEach(function(task, index){
+    if(taskItem.textContetent === task){
+      tasks.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem('tasks',  JSON.stringify(tasks));
+}
 // Clear tasks
 function clearTasks(){
 //taskList.innerHTML = '';
